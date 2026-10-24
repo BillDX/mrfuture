@@ -1,0 +1,41 @@
+{{ define "main" }}
+{{- $k := partial "kind.html" . }}
+{{- $isPost := in (slice "entries" "talks" "projects" "links" "notes" "til" "community") .Section }}
+<div class="grid">
+  <article class="story">
+    {{- if $isPost }}
+    <div class="story-top">
+      <a class="tag tag-red" href="/{{ .Section }}/">{{ $k.label }}</a>
+      <time class="label muted" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    </div>
+    {{- end }}
+    <h1 class="masthead">{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="deck">{{ . }}</p>{{ end }}
+    {{- if $isPost }}
+    <p class="byline caption"><span>By {{ site.Params.author }}</span>{{ with .Params.updated }}<span>Updated {{ (time .).Format "January 2, 2006" }}</span>{{ end }}</p>
+    {{- end }}
+    <div class="prose body">
+      {{ .Content }}
+      {{- if $isPost }}<span class="end-mark" aria-hidden="true"></span>{{ end }}
+    </div>
+  </article>
+
+  <aside class="side" aria-label="Details">
+    {{ partial "facts.html" . }}
+    {{- with .GetTerms "tags" }}
+    <section>
+      <h2 class="label">Topics</h2>
+      <ul class="tag-list">{{ range . }}<li><a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}</ul>
+    </section>
+    {{- end }}
+    {{- if $isPost }}
+    {{- with first 3 (site.RegularPages.Related .) }}
+    <section>
+      <h2 class="label">Related</h2>
+      <ul class="items">{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="caption muted">{{ .Date.Format "Jan 2006" }}</span></li>{{ end }}</ul>
+    </section>
+    {{- end }}
+    {{- end }}
+  </aside>
+</div>
+{{ end }}

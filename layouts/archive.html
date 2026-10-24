@@ -1,0 +1,19 @@
+{{ define "main" }}
+<header class="section-head">
+  <p class="label kicker">Back issues</p>
+  <h1 class="masthead">{{ .Title }}</h1>
+  {{ with .Params.summary }}<p class="deck">{{ . }}</p>{{ end }}
+</header>
+{{- $pages := where site.RegularPages "Section" "in" (slice "entries" "talks" "projects" "links" "notes" "til" "community") }}
+{{- range $pages.GroupByDate "2006" }}
+<section class="archive-year">
+  <h2 class="masthead">{{ .Key }}</h2>
+  <ul class="archive-list">
+    {{- range .Pages }}
+    {{- $k := partial "kind.html" . }}
+    <li><time class="caption muted" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2" }}</time><span class="label kicker">{{ $k.plain }}</span><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+</section>
+{{- end }}
+{{ end }}

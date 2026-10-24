@@ -1,0 +1,12 @@
+{{ define "main" }}
+<header class="section-head">
+  <p class="label kicker">Index</p>
+  <h1 class="masthead">Topics</h1>
+  <p class="deck">Everything here, sorted by subject.</p>
+</header>
+<ul class="tag-list">
+  {{- range .Data.Terms.Alphabetical }}
+  <li><a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="muted">{{ .Count }}</span></a></li>
+  {{- end }}
+</ul>
+{{ end }}

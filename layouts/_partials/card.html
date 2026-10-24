@@ -1,0 +1,10 @@
+{{- $k := partial "kind.html" . }}
+<li class="card{{ if .Params.featured }} card--feature{{ end }}">
+  <div class="card-art"><img class="spot spot-lg" src="{{ printf "icons/%s.svg" (.Params.icon | default $k.icon) | relURL }}" alt="" width="96" height="96"></div>
+  <div class="card-body">
+    <p class="label kicker">{{ $k.label }}{{ with .Params.status }} · {{ . }}{{ end }}</p>
+    <h3 class="card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ with .Params.summary }}<p class="card-deck">{{ . }}</p>{{ end }}
+    <p class="card-foot caption">{{ .Date.Format "January 2006" }}</p>
+  </div>
+</li>

@@ -1,0 +1,26 @@
+{{- /* Sidebar facts for talks, projects and links. Only fields that exist are shown. */}}
+{{- $p := .Params }}
+{{- $rows := slice }}
+{{- with $p.event }}{{ $rows = $rows | append (dict "k" "Event" "v" .) }}{{ end }}
+{{- with $p.location }}{{ $rows = $rows | append (dict "k" "Where" "v" .) }}{{ end }}
+{{- with $p.role }}{{ $rows = $rows | append (dict "k" "Role" "v" (. | humanize)) }}{{ end }}
+{{- with $p.status }}{{ $rows = $rows | append (dict "k" "Status" "v" (. | humanize)) }}{{ end }}
+{{- $links := slice }}
+{{- with $p.slides }}{{ $links = $links | append (dict "k" "Slides" "u" .) }}{{ end }}
+{{- with $p.download }}{{ $links = $links | append (dict "k" "Download" "u" .) }}{{ end }}
+{{- with $p.repo }}{{ $links = $links | append (dict "k" "Source / repo" "u" .) }}{{ end }}
+{{- with $p.video }}{{ $links = $links | append (dict "k" "Video" "u" .) }}{{ end }}
+{{- with $p.link_url }}{{ $links = $links | append (dict "k" "Read it" "u" .) }}{{ end }}
+{{- if or $rows $links }}
+<section class="panel" aria-labelledby="facts-h">
+  <h2 id="facts-h" class="label">Specifications</h2>
+  <dl class="facts">
+    {{- range $rows }}
+    <dt class="label muted">{{ .k }}</dt><dd>{{ .v }}</dd>
+    {{- end }}
+    {{- range $links }}
+    <dt class="label muted">{{ .k }}</dt><dd><a href="{{ .u }}">{{ replaceRE "^https?://(www\\.)?" "" .u | truncate 38 }}</a></dd>
+    {{- end }}
+  </dl>
+</section>
+{{- end }}

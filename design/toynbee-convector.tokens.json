@@ -1,0 +1,75 @@
+{
+  "name": "Toynbee Convector",
+  "version": 1,
+  "color": {
+    "themes": [
+      { "id": "pulp", "name": "Pulp" }
+    ],
+    "tokens": [
+      { "name": "paper", "value": "#f1e4c6", "usage": "Page ground: aged newsprint. Default background for every layout." },
+      { "name": "paper-deep", "value": "#e3cfa3", "usage": "Inset panels, story sidebars and tinted relief blocks. ink and ink-muted both read on it." },
+      { "name": "ink", "value": "#1f1a24", "usage": "Body copy and headlines on paper and paper-deep (13:1+); text on ray-yellow (7.9:1)." },
+      { "name": "ink-muted", "value": "#5a4a3a", "usage": "Captions, bylines, issue dates, on paper (6.7:1) and paper-deep (5.5:1)." },
+      { "name": "rocket-red", "value": "#b8321f", "usage": "The brand hue: mastheads, primary buttons, the one loud headline per spread. As text on paper (4.7:1); paper text on it (4.7:1)." },
+      { "name": "atomic-teal", "value": "#1f6f6b", "usage": "Secondary accent: links, secondary actions, switch on-states, the focus ring (2px solid; 4.7:1 on paper, 3.9:1 on paper-deep). Paper text on it (4.7:1)." },
+      { "name": "ray-yellow", "value": "#e8a317", "usage": "Signal fills only: price bursts, 'NEW!' flags, highlight bars. Always ink text on it; never yellow text on paper." },
+      { "name": "night-sky", "value": "#1b2a4a", "usage": "Deep fields: cover panels, footers, starfield bands. Paper text on it (11:1)." },
+      { "name": "brass", "value": "#8a6a2e", "usage": "Rules, borders, control outlines and ornament on paper (4.0:1, meets 3:1 for marks). Not for body text." }
+    ]
+  },
+  "type": {
+    "fonts": [],
+    "families": {
+      "display": "\"Big Shoulders Display\", \"Arial Narrow\", sans-serif",
+      "body": "\"Old Standard TT\", Georgia, serif",
+      "mono": "\"Courier Prime\", \"Courier New\", monospace"
+    },
+    "groups": [
+      {
+        "name": "Display",
+        "family": "display",
+        "styles": [
+          { "name": "masthead", "fontSize": "88px", "lineHeight": 0.92, "fontWeight": 900, "letterSpacing": "-0.01em", "sample": "Toynbee Convector", "usage": "Issue title and cover names, set uppercase in rocket-red or ink. One per page." },
+          { "name": "headline", "fontSize": "40px", "lineHeight": "44px", "fontWeight": 800, "sample": "The Machine That Folded Tomorrow", "usage": "Story and section titles, uppercase, ink on paper." }
+        ]
+      },
+      {
+        "name": "Text",
+        "family": "body",
+        "styles": [
+          { "name": "deck", "fontSize": "20px", "lineHeight": "28px", "fontWeight": 400, "fontStyle": "italic", "sample": "A breathless account of the century to come, as told by the man who went there.", "usage": "Standfirst under a headline; ink-muted or ink." },
+          { "name": "body", "fontSize": "17px", "lineHeight": "26px", "fontWeight": 400, "sample": "The convector hummed, and the laboratory filled with a light the colour of old brass.", "usage": "Running text, ink on paper, measure 60–72 characters." }
+        ]
+      },
+      {
+        "name": "Label",
+        "family": "mono",
+        "styles": [
+          { "name": "caption", "fontSize": "13px", "lineHeight": "18px", "fontWeight": 400, "sample": "Fig. 3 — The convector at rest, 1938.", "usage": "Figure captions, bylines and footnotes in ink-muted." },
+          { "name": "label", "fontSize": "12px", "lineHeight": "16px", "fontWeight": 700, "letterSpacing": "0.12em", "sample": "VOL. XII · NO. 4 · 25¢", "usage": "Uppercase kickers, issue lines, buttons and tags." }
+        ]
+      }
+    ]
+  },
+  "spacing": {
+    "tokens": [
+      { "name": "space-8", "value": "8px", "usage": "Gap between a kicker and its headline; icon-to-label gaps." },
+      { "name": "space-16", "value": "16px", "usage": "Button and tag padding; gap between paragraphs." },
+      { "name": "space-24", "value": "24px", "usage": "Column gutters and panel padding; the base layout grid." },
+      { "name": "space-48", "value": "48px", "usage": "Page margins and separation between story blocks." }
+    ]
+  },
+  "radius": {
+    "tokens": [
+      { "name": "radius-none", "value": "0", "usage": "Default for panels, cards and images: printed matter has square corners." },
+      { "name": "radius-sm", "value": "3px", "usage": "Buttons, tags and ticket stubs: a press-cut softening, nothing rounder." },
+      { "name": "radius-round", "value": "9999px", "usage": "Portholes, rivets, planets, switch tracks and badges only; never on rectangles of text." }
+    ]
+  },
+  "shadow": {
+    "note": "Printed matter has no soft shadows. The one shadow is a hard ink offset, like a slightly mis-registered second plate.",
+    "tokens": [
+      { "name": "shadow-offset", "value": "4px 4px 0 #1f1a24", "usage": "Buttons and story cards on paper. Buttons drop it while pressed. Never on night-sky panels." }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{{- $k := partial "kind.html" . }}
+{{- if eq .Section "notes" }}
+<li class="tx">
+  <p class="tx-head label"><span>{{ $k.label }}</span><time class="tx-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time></p>
+  <div class="tx-text">{{ .Summary }}</div>
+  <p class="caption"><a href="{{ .RelPermalink }}">Permalink</a></p>
+</li>
+{{- else }}
+<li class="item">
+  <img class="spot" src="{{ printf "icons/%s.svg" (.Params.icon | default $k.icon) | relURL }}" alt="" width="48" height="48">
+  <div>
+    <p class="item-meta label"><span class="kicker">{{ $k.label }}</span><time class="muted" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>{{ with .Params.event }}<span class="muted">{{ . }}</span>{{ end }}</p>
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    {{ with .Params.summary }}<p class="summary">{{ . }}</p>{{ end }}
+  </div>
+</li>
+{{- end }}

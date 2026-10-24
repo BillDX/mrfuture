@@ -1,0 +1,27 @@
+{{ define "main" }}
+{{- $k := partial "kind.html" (dict "Section" .Section) }}
+<header class="section-head">
+  <p class="label kicker">{{ $k.label }}</p>
+  <h1 class="masthead">{{ .Title }}</h1>
+  {{ with .Params.summary }}<p class="deck">{{ . }}</p>{{ end }}
+</header>
+{{ with .Content }}<div class="prose body">{{ . }}</div>{{ end }}
+{{- $pages := .Pages.ByDate.Reverse }}
+{{- if eq .Section "projects" }}{{ $pages = union (where $pages "Params.featured" true) $pages }}{{ end }}
+{{- $paginator := .Paginate $pages }}
+{{- if eq .Section "projects" }}
+<ul class="cards">
+  {{- range $paginator.Pages }}{{ partial "card.html" . }}{{ end }}
+</ul>
+{{- else }}
+{{- range $paginator.Pages.GroupByDate "2006" }}
+<section class="month">
+  <h2 class="month-label label muted">{{ .Key }}</h2>
+  <ul class="items">{{ range .Pages }}{{ partial "item.html" . }}{{ end }}</ul>
+</section>
+{{- else }}
+<p class="muted">Nothing filed here yet.</p>
+{{- end }}
+{{- end }}
+{{ partial "pager.html" $paginator }}
+{{ end }}

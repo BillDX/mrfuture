@@ -1,0 +1,97 @@
+baseURL = "https://mrfuture.com/"
+locale = "en-US"
+title = "MrFuture.com"
+enableRobotsTXT = true
+enableGitInfo = false
+timeZone = "America/Denver"
+
+[params]
+  author = "Bill McIntyre"
+  description = "Bill McIntyre's personal blog on AI/ML engineering, learning, and experiments."
+  titleSuffix = "MrFuture.com — Bill McIntyre's personal blog on AI/ML engineering"
+  mastheadLine = "Bill McIntyre's personal blog on AI/ML engineering, learning, and experiments."
+  mottoQuote = "The best way to predict the future is to invent it."
+  mottoSource = "Alan Kay, Xerox PARC, 1971"
+  launchYear = 2026
+  location = "Boulder, Colorado"
+  github = "https://github.com/BillDX"
+  linkedin = "https://www.linkedin.com/in/billmcintyre/"
+  [params.insideVoice]
+    page = "/inside-voice/"
+    download = "https://github.com/BillDX/InsideVoice/releases/latest/download/InsideVoice.dmg"
+    repo = "https://github.com/BillDX/InsideVoice"
+
+[taxonomies]
+  tag = "tags"
+
+[permalinks]
+  [permalinks.page]
+    entries = "/:year/:month/:slug/"
+    notes = "/:year/:month/:slug/"
+    links = "/:year/:month/:slug/"
+    til = "/til/:slug/"
+    talks = "/talks/:slug/"
+    projects = "/projects/:slug/"
+    community = "/community/:slug/"
+
+[pagination]
+  pagerSize = 40
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html", "rss"]
+  taxonomy = ["html"]
+  term = ["html", "rss"]
+
+[markup]
+  [markup.goldmark.renderer]
+    # Raw HTML in Markdown stays off: posts are Markdown only.
+    unsafe = false
+  [markup.goldmark.parser.attribute]
+    block = true
+  [markup.highlight]
+    # Classes instead of inline styles, so the Content-Security-Policy can forbid inline styles.
+    noClasses = false
+    lineNos = false
+
+[minify]
+  minifyOutput = true
+
+[privacy]
+  [privacy.youTube]
+    privacyEnhanced = true
+  [privacy.vimeo]
+    enableDNT = true
+  [privacy.x]
+    enableDNT = true
+
+[menus]
+  [[menus.main]]
+    name = "Talks"
+    pageRef = "/talks"
+    weight = 10
+  [[menus.main]]
+    name = "Projects"
+    pageRef = "/projects"
+    weight = 20
+  [[menus.main]]
+    name = "Inside Voice"
+    url = "/inside-voice/"
+    weight = 30
+  [[menus.main]]
+    name = "About"
+    pageRef = "/about"
+    weight = 40
+
+  [[menus.footer]]
+    name = "Back issues"
+    pageRef = "/archive"
+    weight = 10
+  [[menus.footer]]
+    name = "Topics"
+    pageRef = "/tags"
+    weight = 20
+  [[menus.footer]]
+    name = "RSS"
+    url = "/index.xml"
+    weight = 30

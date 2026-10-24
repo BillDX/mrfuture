@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" data-theme="pulp">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+{{ partial "proof.html" . }}
+{{ partial "masthead.html" . }}
+{{ partial "nav.html" . }}
+<main id="main">
+  <div class="wrap">
+  {{ block "main" . }}{{ end }}
+  </div>
+</main>
+{{ partial "footer.html" . }}
+</body>
+</html>

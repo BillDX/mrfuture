@@ -1,0 +1,29 @@
+{{- /* A different quote on each page, chosen at build time from assets/data/quotes.csv (no JavaScript). */}}
+{{- $quotes := slice }}
+{{- with resources.Get "data/quotes.csv" }}
+  {{- $rows := . | transform.Unmarshal (dict "delimiter" ",") }}
+  {{- range after 1 $rows }}
+    {{- if eq (index . 9) "yes" }}{{ $quotes = $quotes | append (dict "quote" (index . 1) "author" (index . 2) "work" (index . 3) "year" (index . 4)) }}{{ end }}
+  {{- end }}
+{{- end }}
+<footer class="footer">
+  <div class="wrap">
+    {{- with $quotes }}
+    {{- $q := index . (mod (hash.FNV32a $.RelPermalink) (len .)) }}
+    <blockquote class="quote">
+      <p>&ldquo;{{ $q.quote }}&rdquo;</p>
+      <footer class="caption">&mdash; {{ $q.author }}, <cite>{{ $q.work }}</cite>, {{ $q.year }}</footer>
+    </blockquote>
+    {{- end }}
+    <div class="footer-row">
+      <ul class="label">
+        {{- range site.Menus.footer }}
+        <li><a href="{{ .URL }}">{{ .Name }}</a></li>
+        {{- end }}
+        <li><a href="{{ site.Params.github }}" rel="me">GitHub</a></li>
+        <li><a href="{{ site.Params.linkedin }}" rel="me">LinkedIn</a></li>
+      </ul>
+      <p class="caption">&copy; {{ now.Year }} {{ site.Params.author }} · {{ site.Params.location }}</p>
+    </div>
+  </div>
+</footer>

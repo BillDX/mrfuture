@@ -1,0 +1,12 @@
+{{- /* Returns the kicker label and spot-art icon for a page's section.
+       Navigation stays plain; these pulp kickers are the small labels. */}}
+{{- $map := dict
+  "entries"   (dict "label" "Feature"            "icon" "rocket"      "plain" "Entry")
+  "talks"     (dict "label" "Broadcast"          "icon" "broadcast"   "plain" "Talk")
+  "projects"  (dict "label" "Invention"          "icon" "tesla-coil"  "plain" "Project")
+  "links"     (dict "label" "Recommended reading" "icon" "telescope"  "plain" "Link")
+  "notes"     (dict "label" "Transmission"       "icon" "comet"       "plain" "Note")
+  "til"       (dict "label" "Service bulletin"   "icon" "vacuum-tube" "plain" "TIL")
+  "community" (dict "label" "Community"          "icon" "dome-city"   "plain" "Community")
+}}
+{{- return (index $map .Section | default (dict "label" "Dispatch" "icon" "rocket" "plain" "Page")) }}

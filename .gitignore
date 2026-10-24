@@ -1,0 +1,10 @@
+# Hugo build output and caches
+/public/
+/resources/_gen/
+.hugo_build.lock
+# macOS
+.DS_Store
+# Never commit secrets
+.env
+*.pem
+*.key

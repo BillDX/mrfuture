@@ -1,0 +1,36 @@
+{{ define "main" }}
+<section class="feature" aria-labelledby="p-h">
+  <span class="badge"><img class="spot spot-lg" src="{{ "icons/vacuum-tube.svg" | relURL }}" alt="" width="96" height="96"></span>
+  <div>
+    <p class="kicker label">{{ .Params.kicker | default "Invention" }}</p>
+    <h1 id="p-h" class="masthead">{{ .Title }}</h1>
+    {{ with .Params.summary }}<p class="deck">{{ . }}</p>{{ end }}
+    <div class="btn-row">
+      {{ with .Params.download }}<a class="btn btn-primary" href="{{ . }}">Download free for Mac</a>{{ end }}
+      {{ with .Params.repo }}<a class="btn btn-secondary" href="{{ . }}">Project page on GitHub</a>{{ end }}
+    </div>
+    {{ with .Params.requirements }}<p class="fine caption">{{ . }}</p>{{ end }}
+  </div>
+  {{ with .Params.burst }}{{ partial "burst.html" . }}{{ end }}
+</section>
+<div class="grid">
+  <article class="story">
+    <div class="prose body">{{ .Content }}</div>
+  </article>
+  <aside class="side" aria-label="Details">
+    {{ partial "facts.html" . }}
+    {{- with .Params.more }}
+    <section>
+      <h2 class="label">More</h2>
+      <ul class="items">{{ range . }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}</ul>
+    </section>
+    {{- end }}
+    {{- with .GetTerms "tags" }}
+    <section>
+      <h2 class="label">Topics</h2>
+      <ul class="tag-list">{{ range . }}<li><a class="tag" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}</ul>
+    </section>
+    {{- end }}
+  </aside>
+</div>
+{{ end }}

@@ -1,0 +1,36 @@
+{{- /* Masthead after the Toynbee Convector cover: newsprint ground, ink name,
+       and a block of flat colour plates with orbits. Red is only an accent. */}}
+{{- $now := now }}
+{{- $vol := add (sub $now.Year site.Params.launchYear) 1 }}
+{{- $numerals := slice "I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X" "XI" "XII" }}
+<header class="mh{{ if not .IsHome }} mh--compact{{ end }}">
+  <div class="wrap mh-grid">
+    <div class="mh-words">
+      <p class="mh-issue label"><span>Vol. {{ index $numerals (sub $vol 1) }} · No. {{ $now.Month | int }}</span><span>{{ $now.Format "January 2006" }} · {{ site.Params.location }}</span></p>
+      {{ if .IsHome }}<h1 class="mh-name masthead">{{ else }}<p class="mh-name masthead">{{ end }}<a href="/">Mr Future</a>{{ if .IsHome }}</h1>{{ else }}</p>{{ end }}
+      <p class="mh-deck deck">{{ site.Params.mastheadLine }}</p>
+      <p class="mh-motto caption">&ldquo;{{ site.Params.mottoQuote }}&rdquo; <cite>&mdash; {{ site.Params.mottoSource }}</cite></p>
+    </div>
+    <div class="mh-art" aria-hidden="true">
+      <svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <defs><clipPath id="mh-slab"><rect x="120" y="0" width="240" height="300"/></clipPath></defs>
+        <rect class="p-tint" x="0" y="48" width="120" height="120"/>
+        <rect class="p-red" x="0" y="168" width="120" height="132"/>
+        <rect class="p-night" x="120" y="0" width="240" height="300"/>
+        <rect class="p-yellow" x="360" y="0" width="120" height="144"/>
+        <rect class="p-teal" x="360" y="144" width="120" height="156"/>
+        <g clip-path="url(#mh-slab)">
+          <circle class="p-orbit" cx="120" cy="300" r="48"/>
+          <circle class="p-orbit" cx="120" cy="300" r="96"/>
+          <circle class="p-orbit p-orbit-thin" cx="120" cy="300" r="144"/>
+          <circle class="p-orbit" cx="120" cy="300" r="192"/>
+          <circle class="p-red" cx="212" cy="190" r="16"/>
+          <rect class="p-star" x="300" y="40" width="5" height="5"/>
+          <rect class="p-star" x="262" y="92" width="3" height="3"/>
+          <rect class="p-star" x="330" y="128" width="3" height="3"/>
+          <rect class="p-star" x="196" y="30" width="3" height="3"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>

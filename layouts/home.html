@@ -1,0 +1,58 @@
+{{ define "main" }}
+{{- $iv := site.GetPage "/projects/inside-voice" }}
+<section class="feature" aria-labelledby="iv-h">
+  <span class="badge"><img class="spot spot-lg" src="{{ "icons/vacuum-tube.svg" | relURL }}" alt="" width="96" height="96"></span>
+  <div>
+    <p class="kicker label">Now in every modern home</p>
+    <h2 id="iv-h" class="masthead"><a href="{{ site.Params.insideVoice.page }}">Inside Voice</a></h2>
+    <p class="deck">Talk instead of type, on your Mac. Hold one key, say what you mean, let go: your words appear wherever you were typing. Nothing you say ever leaves your computer.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="{{ site.Params.insideVoice.download }}">Download free for Mac</a>
+      <a class="btn btn-secondary" href="{{ site.Params.insideVoice.page }}">How it works</a>
+    </div>
+    <p class="fine caption">For Apple Silicon Macs on macOS 14 or later. Free for everyone, including at work.</p>
+  </div>
+  {{ partial "burst.html" "Free! For your Mac!" }}
+</section>
+
+<div class="grid">
+  <section aria-labelledby="latest-h">
+    <h2 id="latest-h" class="rule-label label">In this issue</h2>
+    {{- $pages := where site.RegularPages "Section" "in" (slice "entries" "talks" "projects" "links" "notes" "til" "community") }}
+    {{- $paginator := .Paginate $pages.ByDate.Reverse }}
+    {{- range $paginator.Pages.GroupByDate "January 2006" }}
+    <section class="month">
+      <h3 class="month-label label muted">{{ .Key }}</h3>
+      <ul class="items">
+        {{- range .Pages }}{{ partial "item.html" . }}{{ end }}
+      </ul>
+    </section>
+    {{- end }}
+    {{ partial "pager.html" $paginator }}
+  </section>
+
+  <aside class="side" aria-label="More">
+    <section>
+      <h2 class="label">Recent broadcasts</h2>
+      <ul class="tag-list">
+      {{- range first 4 (where site.RegularPages "Section" "talks").ByDate.Reverse }}
+        <li><a class="tag" href="{{ .RelPermalink }}">{{ .Title | truncate 40 }}</a></li>
+      {{- end }}
+      </ul>
+    </section>
+    <section>
+      <h2 class="label">Topics</h2>
+      <ul class="tag-list">
+      {{- range first 14 site.Taxonomies.tags.ByCount }}
+        <li><a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="muted">{{ .Count }}</span></a></li>
+      {{- end }}
+      </ul>
+    </section>
+    <section class="panel">
+      <h2 class="label">About the editor</h2>
+      <p class="caption">Bill McIntyre is an AI/ML engineer in {{ site.Params.location }}. He builds things, gives talks, and hosts the RMAIIG AI Engineering meetups.</p>
+      <p class="caption"><a href="/about/">More about Bill</a></p>
+    </section>
+  </aside>
+</div>
+{{ end }}

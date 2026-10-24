@@ -1,0 +1,75 @@
+# Build the site with Hugo and publish it to GitHub Pages.
+# Security notes:
+#   - Every action is pinned to a full commit SHA (tag in the comment). Dependabot proposes updates.
+#   - Hugo is downloaded at a pinned version and checked against a pinned SHA-256 before use.
+#   - The workflow gets only the permissions Pages needs. No secrets are used.
+#   - The build refuses to publish any page still marked `review: true`.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  HUGO_VERSION: "0.167.0"
+  HUGO_SHA256: "4d84519b9f619e6d4c3fb45a50157abeabeb724f859c60605f44c23def6e1169" # hugo_0.167.0_linux-amd64.tar.gz
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Refuse unreviewed pages
+        run: |
+          if grep -rlE '^review:[[:space:]]*true' content; then
+            echo "::error::The pages above are still marked 'review: true'. Review them and remove that line before publishing."
+            exit 1
+          fi
+
+      - name: Install Hugo ${{ env.HUGO_VERSION }} (checksum verified)
+        run: |
+          curl -fsSL -o hugo.tar.gz "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_linux-amd64.tar.gz"
+          echo "${HUGO_SHA256}  hugo.tar.gz" | sha256sum --check --strict
+          mkdir -p "$HOME/.local/hugo"
+          tar -xzf hugo.tar.gz -C "$HOME/.local/hugo" hugo
+          echo "$HOME/.local/hugo" >> "$GITHUB_PATH"
+
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      - name: Build
+        env:
+          HUGO_ENVIRONMENT: production
+        run: hugo --gc --minify --panicOnWarning --baseURL "${{ steps.pages.outputs.base_url }}/"
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@368f82528645a54fb793d4d04e342629a3f51346 # v5.0.1

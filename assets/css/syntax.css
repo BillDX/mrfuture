@@ -1,0 +1,11 @@
+/* Code highlighting (Hugo/Chroma classes), coloured from Toynbee Convector tokens.
+   Classes, not inline styles, so the Content-Security-Policy can stay strict. */
+.chroma { color: var(--ink); }
+.chroma .c, .chroma .c1, .chroma .cm, .chroma .cs, .chroma .ch, .chroma .cp, .chroma .cpf { color: var(--ink-muted); font-style: italic; }
+.chroma .k, .chroma .kd, .chroma .kn, .chroma .kp, .chroma .kr, .chroma .kt, .chroma .kc, .chroma .ow { color: var(--rocket-red); font-weight: 700; }
+.chroma .s, .chroma .s1, .chroma .s2, .chroma .sb, .chroma .sc, .chroma .sd, .chroma .se, .chroma .sh, .chroma .si, .chroma .sr, .chroma .ss, .chroma .sx, .chroma .dl { color: var(--atomic-teal); }
+.chroma .nf, .chroma .fm, .chroma .nc, .chroma .nn, .chroma .nd, .chroma .nb, .chroma .bp { color: var(--night-sky); font-weight: 700; }
+.chroma .m, .chroma .mi, .chroma .mf, .chroma .mh, .chroma .mo, .chroma .il, .chroma .mb { color: var(--ink); font-weight: 700; }
+.chroma .gd { color: var(--rocket-red); }
+.chroma .gi { color: var(--atomic-teal); }
+.chroma .err { color: var(--rocket-red); text-decoration: underline wavy; }

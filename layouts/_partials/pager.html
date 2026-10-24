@@ -1,0 +1,7 @@
+{{- if gt .TotalPages 1 }}
+<nav class="pager label" aria-label="More pages">
+  {{ if .HasPrev }}<a href="{{ .Prev.URL }}">&larr; Newer</a>{{ else }}<span></span>{{ end }}
+  <span class="muted">Page {{ .PageNumber }} of {{ .TotalPages }}</span>
+  {{ if .HasNext }}<a href="{{ .Next.URL }}">Older &rarr;</a>{{ else }}<span></span>{{ end }}
+</nav>
+{{- end }}

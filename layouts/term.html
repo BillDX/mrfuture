@@ -1,0 +1,14 @@
+{{ define "main" }}
+<header class="section-head">
+  <p class="label kicker">Topic</p>
+  <h1 class="masthead">{{ .Title }}</h1>
+  <p class="deck">{{ len .Pages }} {{ cond (eq (len .Pages) 1) "item" "items" }} filed under {{ .Title }}.</p>
+</header>
+{{- range (.Paginate .Pages.ByDate.Reverse).Pages.GroupByDate "2006" }}
+<section class="month">
+  <h2 class="month-label label muted">{{ .Key }}</h2>
+  <ul class="items">{{ range .Pages }}{{ partial "item.html" . }}{{ end }}</ul>
+</section>
+{{- end }}
+{{ partial "pager.html" .Paginator }}
+{{ end }}
