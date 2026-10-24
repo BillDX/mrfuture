@@ -53,7 +53,8 @@ jobs:
       - name: Build
         env:
           HUGO_ENVIRONMENT: production
-        run: hugo --gc --minify --panicOnWarning --baseURL "${{ steps.pages.outputs.base_url }}/"
+        # The address comes from baseURL in hugo.toml (https://mrfuture.com/).
+        run: hugo --gc --minify --panicOnWarning
 
       - name: Upload site
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
