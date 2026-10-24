@@ -4,6 +4,8 @@ Source for [mrfuture.com](https://mrfuture.com): Bill McIntyre's personal blog o
 
 Built with [Hugo](https://gohugo.io) and published to GitHub Pages. The look comes from the Toynbee Convector design system.
 
+**New here? Read [docs/HOW-TO.md](docs/HOW-TO.md)**: how to write and edit posts (on github.com or on your Mac) and how to run the site, with screenshots.
+
 ## Run it on your Mac
 
 ```bash
@@ -27,7 +29,7 @@ hugo new content til/a-small-thing.md
 hugo new content community/a-meetup.md
 ```
 
-New files start as `draft: true`. Remove that line (or set it to `false`) when it's ready.
+Name files with the date first (`2026-10-25-my-note.md`); the template takes the title and the address (`slug`) from the rest of the name. New files start as `draft: true`. Remove that line when it's ready.
 
 | Folder | Shown as | Address |
 |---|---|---|
