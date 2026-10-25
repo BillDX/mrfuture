@@ -32,7 +32,7 @@
     {{- with first 3 (site.RegularPages.Related .) }}
     <section>
       <h2 class="label">Related</h2>
-      <ul class="items">{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="caption muted">{{ .Date.Format "Jan 2006" }}</span></li>{{ end }}</ul>
+      <ul class="side-list">{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a> <span class="caption muted">{{ .Date.Format "Jan 2006" }}</span></li>{{ end }}</ul>
     </section>
     {{- end }}
     {{- end }}

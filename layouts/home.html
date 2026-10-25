@@ -1,19 +1,11 @@
 {{ define "main" }}
 {{- $iv := site.GetPage "/projects/inside-voice" }}
-<section class="feature" aria-labelledby="iv-h">
-  <span class="badge"><img class="spot spot-lg" src="{{ "icons/vacuum-tube.svg" | relURL }}" alt="" width="96" height="96"></span>
-  <div>
-    <p class="kicker label">Now in every modern home</p>
-    <h2 id="iv-h" class="masthead"><a href="{{ site.Params.insideVoice.page }}">Inside Voice</a></h2>
-    <p class="deck">Talk instead of type, on your Mac. Hold one key, say what you mean, let go: your words appear wherever you were typing. Nothing you say ever leaves your computer.</p>
-    <div class="btn-row">
-      <a class="btn btn-primary" href="{{ site.Params.insideVoice.download }}">Download free for Mac</a>
-      <a class="btn btn-secondary" href="{{ site.Params.insideVoice.page }}">How it works</a>
-    </div>
-    <p class="fine caption">For Apple Silicon Macs on macOS 14 or later. Free for everyone, including at work.</p>
-  </div>
-  {{ partial "burst.html" "Free! For your Mac!" }}
-</section>
+<aside class="promo" aria-label="Inside Voice">
+  {{ partial "burst.html" "Free!" }}
+  <span class="badge"><img class="spot" src="{{ "icons/vacuum-tube.svg" | relURL }}" alt="" width="40" height="40"></span>
+  <p><span class="kicker label">Now in every modern home</span> <strong><a href="{{ site.Params.insideVoice.page }}">Inside Voice</a></strong>: talk instead of type on your Mac. Nothing you say leaves your computer. <a href="{{ site.Params.insideVoice.page }}">How it works</a></p>
+  <a class="btn btn-primary" href="{{ site.Params.insideVoice.download }}">Download free</a>
+</aside>
 
 <div class="grid">
   <section aria-labelledby="latest-h">
@@ -34,16 +26,16 @@
   <aside class="side" aria-label="More">
     <section>
       <h2 class="label">Recent broadcasts</h2>
-      <ul class="tag-list">
+      <ul class="side-list">
       {{- range first 4 (where site.RegularPages "Section" "talks").ByDate.Reverse }}
-        <li><a class="tag" href="{{ .RelPermalink }}">{{ .Title | truncate 40 }}</a></li>
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a><span class="caption muted">{{ .Date.Format "Jan 2, 2006" }}</span></li>
       {{- end }}
       </ul>
     </section>
     <section>
       <h2 class="label">Topics</h2>
       <ul class="tag-list">
-      {{- range first 14 site.Taxonomies.tags.ByCount }}
+      {{- range first 10 site.Taxonomies.tags.ByCount }}
         <li><a class="tag" href="{{ .Page.RelPermalink }}">{{ .Page.Title }} <span class="muted">{{ .Count }}</span></a></li>
       {{- end }}
       </ul>

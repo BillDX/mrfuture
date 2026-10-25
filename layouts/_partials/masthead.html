@@ -6,8 +6,8 @@
 <header class="mh{{ if not .IsHome }} mh--compact{{ end }}">
   <div class="wrap mh-grid">
     <div class="mh-words">
-      <p class="mh-issue label"><span>Vol. {{ index $numerals (sub $vol 1) }} · No. {{ $now.Month | int }}</span><span>{{ $now.Format "January 2006" }} · {{ site.Params.location }}</span></p>
       {{ if .IsHome }}<h1 class="mh-name masthead">{{ else }}<p class="mh-name masthead">{{ end }}<a href="/">Mr Future</a>{{ if .IsHome }}</h1>{{ else }}</p>{{ end }}
+      <p class="mh-issue label"><span>Vol. {{ index $numerals (sub $vol 1) }} · No. {{ $now.Month | int }}</span><span>{{ $now.Format "January 2006" }}</span></p>
       <p class="mh-deck deck">{{ site.Params.mastheadLine }}</p>
       <p class="mh-motto caption">&ldquo;{{ site.Params.mottoQuote }}&rdquo; <cite>&mdash; {{ site.Params.mottoSource }}</cite></p>
     </div>

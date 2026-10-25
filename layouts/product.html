@@ -22,7 +22,7 @@
     {{- with .Params.more }}
     <section>
       <h2 class="label">More</h2>
-      <ul class="items">{{ range . }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}</ul>
+      <ul class="side-list">{{ range . }}<li><a href="{{ .url }}">{{ .name }}</a></li>{{ end }}</ul>
     </section>
     {{- end }}
     {{- with .GetTerms "tags" }}
