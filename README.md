@@ -55,7 +55,7 @@ Drafts stay on your Mac until they're ready: this repo is public, so anything pu
 
 - `design/toynbee-convector.tokens.json` is a copy of the design system's tokens. After updating it, run `python3 scripts/tokens_to_css.py` to regenerate `assets/css/tokens.css`. Don't edit `tokens.css` by hand.
 - Site styles are in `assets/css/main.css`; templates are in `layouts/`.
-- Spot-art icons in `static/icons/` come from the design system.
+- Spot-art icons in `static/icons/` are the design system's full set of 24 (rocket, broadcast, tesla-coil, telescope, comet, vacuum-tube, globe and more). To refresh them after a design-system change, copy the new SVGs over the old ones. A post can pick any of them with `icon: name` in its settings.
 - Footer quotes rotate per page from `assets/data/quotes.csv` (rows with `footer` = `yes`).
 - Themes: each colour theme in the tokens file becomes a `[data-theme="…"]` block. Only "Pulp" exists today.
 

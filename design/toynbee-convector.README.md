@@ -4,9 +4,9 @@ Toynbee Convector is the look of a tomorrow imagined in the golden age of pulp s
 
 There are two registers, and both use the same 24 names: rocket, ray-gun, atom, saucer, planet, robot, helmet, starburst, comet, broadcast, dial, hourglass, telescope, bolt, moon, globe, airship, scissors, jetpack, flying-car, monorail, vacuum-tube, tesla-coil, dome-city.
 
-- **Spot art** (`Spot`, and the SVGs in the Icons group) is the illustration voice: a 2.5px ink keyline over a colour plate printed a hair off-register, halftone-dot shading, paper glints and twinkle sparkles, in the system's flat inks only. Use it at 48px and up, on `paper` or `paper-deep`, one piece per card or panel. On `night-sky`, set it on a `badge`.
+- **Spot art** (`Spot`, and the SVGs in the Icons group) is the illustration voice: one clear silhouette per piece in a 2px ink keyline, flat colour from the palette, a single paper glint, and one accent (a twinkle, or two or three motion lines). Use it at 48px and up, on `paper` or `paper-deep`, one piece per card or panel. On `night-sky`, set it on a `badge`.
 - **Line icons** (`Icon`) are the interface voice: 24px, 2px round-cap strokes in `currentColor`, beside Courier Prime labels at 14–18px, at 16–32px.
-- Draw new pieces the same way: a 64px grid, the keyline, only the palette's inks, halftone for shade (never gradients) and a sparkle or speed line for life. No faces on anything but the robot, no real brands or characters, and no emoji. The rocket always points up and away.
+- Draw new pieces with restraint: a 64px grid with art inside 5–59; a 2px keyline outside and 1.25px lines inside; two or three inks plus paper; at least 2px of air between separate parts; halftone at most once, and only where it explains form (the shaded side of a rocket or planet); one accent, never several. If two parts blur together at 48px, cut one. No faces on anything but the robot, no real brands or characters, no emoji. The rocket always points up and away.
 
 ## Components
 
