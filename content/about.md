@@ -3,7 +3,7 @@ title: "About"
 summary: "Who writes this, what you'll find here, and why it looks like a 1950s science magazine."
 ---
 
-I'm Bill McIntyre, an AI and machine learning architect in Boulder, Colorado. I build applied AI systems, help engineering teams adopt agentic coding, and host the AI Engineering meetups of the Rocky Mountain AI Interest Group (RMAIIG), where I usually bring the coffee.
+I'm Bill McIntyre, an AI and machine learning architect in Boulder, Colorado. I build applied AI systems and help engineering teams adopt agentic coding. At the Rocky Mountain AI Interest Group (RMAIIG), I lead the AI and machine learning engineering subgroup, where I usually bring the coffee, and serve as an advisory board member.
 
 This is where I write down what I'm learning: the experiments, the talks and workshops, the software I ship, and the things that broke along the way. AI right now is fascinating, a little terrifying, and a lot of fun, and I'd rather share what I find than keep it in a notes app. I also love robots, toys and games, so expect some of those too.
 
