@@ -12,4 +12,6 @@ An anonymous client bought an abandoned data center off the internet and hired y
 
 COLD STORAGE was built for the [local and sovereign AI workshop](/talks/pi-on-a-local-model/). The point was to show what a model running on an ordinary laptop can make: a MacBook Pro (M3) with 16GB of RAM, running Qwen3.8 27B, steered by me through the Pi coding harness with a few sandbox safety add-ons and a minimal AGENTS.md and skills setup to leave room for context.
 
+It's an old Infocom-style text adventure. While I didn't use the now open-sourced Infocom parser, the grammar and everything works a lot like it. I think the most interesting part of the build was having the Pi agentic harness playtest every option and solution, to make sure every puzzle that was added is solvable and ultimately leads to a successful exit from the haunted data center.
+
 The design, code, tests, debugging and even the jokes came from the model on the laptop.
