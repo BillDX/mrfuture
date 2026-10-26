@@ -8,3 +8,7 @@
 .env
 *.pem
 *.key
+
+# Personal Claude Code notes (point to the private planning folder)
+CLAUDE.local.md
+.claude/settings.local.json
