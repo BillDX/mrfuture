@@ -2,7 +2,7 @@
 title: "Monster Scanner: LLMs on an iPhone, Halloween edition"
 date: 2026-10-22T11:00:00-06:00
 slug: monster-scanner
-summary: "Running an open-source vision-language model entirely on an iPhone, inside a custom Swift app. The demo: a silly, fully offline Halloween party game."
+summary: "I wanted to try creating an iPhone app that used an open-source LLM hosted on the iPhone itself. For the demo, I made a fun and silly offline Halloween party game using a Qwen vision-language model hosted on an old iPhone 14 Pro."
 event: "AI/ML Engineering meetup: Local/Sovereign AI (RMAIIG)"
 location: "Founder Central, Boulder, Colorado"
 role: speaker
