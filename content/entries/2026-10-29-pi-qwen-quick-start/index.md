@@ -6,7 +6,7 @@ summary: "Based on feedback from my Pi on a local model workshop: a one-slide qu
 tags: [local-ai, agentic-coding, pi, qwen, mac, workshops]
 ---
 
-Based on feedback from my workshop on [Pi on a local model](/talks/pi-on-a-local-model/), I've created this quick start guide to getting ramped up on running Pi and Qwen for local coding on a MacBook or macOS environment. The slide has all the links and pieces you need to get going very quickly.
+Based on feedback from my workshop on [Pi on a local model](/talks/pi-on-a-local-model/), I've created this one-page quick start guide to getting ramped up on running Pi and Qwen for local coding on a MacBook or macOS environment. The slide has all the links and pieces you need to get going very quickly.
 
 [![Slide 2 of the Pi on a local model deck, "Cheat sheet: zero to a local agent". Five steps: install the MTPLX app and remove its passwordless sudo rule; download Qwen3.8-27B (20 GB) and serve it on port 8000; install pi 1.3.0 with npm (Node 22.19 or newer); add pi-sandbox and pi-mtplx, pinned; register the model in pi and start working in your repo. Side boxes list what to put in AGENTS.md, pi settings (thinking set to low for routine edits, a 131,072-token context window and the built-in MCP extension off) and three skills from obra/superpowers.](cheat-sheet.png)](https://billdx.github.io/Pi-Qwen/#2)
 
