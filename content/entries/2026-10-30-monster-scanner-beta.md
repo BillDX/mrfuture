@@ -6,7 +6,7 @@ summary: "My local LLM Halloween game is still waiting on App Store review, but 
 tags: [ios, on-device, local-ai, vision, qwen, games-and-toys]
 ---
 
-Try out my local LLM game, [Monster Scanner](/talks/monster-scanner/), on your iPhone. I was hoping it would be approved for the App Store in time for Halloween, but it looks like they're backlogged. If you have TestFlight for iOS, you can [give the beta a try](https://testflight.apple.com/join/efjuGf7M).
+For some (kid-friendly) Halloween fun / silliness, give my iOS local-LLM game [Monster Scanner](/talks/monster-scanner/) a try on your iPhone. I was hoping it would be approved for the App Store in time for Halloween, but it looks like they're backlogged. If you have TestFlight for iOS, you can [give the beta a try](https://testflight.apple.com/join/efjuGf7M).
 
 Monster Scanner was the fun and silly test application I made to demonstrate local LLMs and vision-language models running on the iPhone. It uses a 2-billion-parameter Qwen vision-language model (Qwen3-VL-2B) to take a subject's photo, analyze various things about their posture, head tilt, accessories like glasses and hats, and shirt color, and use that perfectly scientific information to determine which kind of Halloween monster you might be.
 
