@@ -8,7 +8,7 @@ tags: [local-ai, agentic-coding, codex, ollama, gpt-oss, deepseek, qwen, games-a
 
 To double down on local-LLM coding experiments, I wanted to try out different, and possibly simpler approaches, so I recreated the Halloween-themed [COLD STORAGE](/projects/cold-storage/) text adventure game locally using Codex plus the gpt-oss-20b model, with the same initial prompt that I used for the [Pi/Qwen experiment](/talks/pi-on-a-local-model/). Using Ollama as the host and bridge to Codex was a breeze to set up, and this route might be much easier for folks not entirely comfortable with the command line.
 
-The prompt I gave all three, word for word:
+Here's the prompt I used to create the game in all three local AI coding setups:
 
 ```text
 lets make a fun/funny standalone text adventure game, similar to
