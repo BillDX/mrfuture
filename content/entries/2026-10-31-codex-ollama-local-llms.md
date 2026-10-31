@@ -2,7 +2,7 @@
 title: "Codex + Ollama: an easier route to coding with local LLMs"
 slug: "codex-ollama-local-llms"
 date: 2026-10-31T08:30:00-06:00
-summary: "I reran my COLD STORAGE local-coding experiment with Codex and Ollama, using gpt-oss-20b and DeepSeek V4.1 Flash. Same prompt, three working haunted data center games, and very different amounts of hand-holding."
+summary: "I reran my COLD STORAGE local-coding adventure game experiment with Codex and Ollama, using gpt-oss-20b and DeepSeek V4.1 Flash. Same prompt, three working haunted data center games, and a path to local coding that's friendlier to anyone who shies away from the command line."
 tags: [local-ai, agentic-coding, codex, ollama, gpt-oss, deepseek, qwen, games-and-toys]
 ---
 
