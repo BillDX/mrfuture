@@ -37,3 +37,5 @@ The Qwen and DeepSeek versions both independently created a ghost sysadmin chara
 *The two ghost sysadmins: Qwen's Bernard and DeepSeek's Mortimer Cache.*
 
 For experienced CLI-native coders, I do find the Qwen3.8 and Pi combo to be the most familiar, but for folks starting out in these adventures, Codex and gpt-oss-20b is a genuinely great way to get started with fully local AI coding and development.
+
+The games: [COLD STORAGE](https://github.com/BillDX/coldstorage) (Qwen3.8 27B), [Much Colder Storage](https://github.com/BillDX/MuchColderStorage) (gpt-oss-20b) and [Colder Storage](https://github.com/BillDX/ColderStorage) (DeepSeek V4.1 Flash)
