@@ -14,4 +14,4 @@ For a slightly different comparison, I also used Codex and Ollama to bridge to a
 
 The Qwen and DeepSeek versions both independently created a ghost sysadmin character with unfinished earthly data center business, to be completed as one of the puzzles. The Qwen model produced the longest, largest world, and arguably the funniest version, but all three versions were playable, enjoyable (in a 1980s style text adventure way), and most importantly, working code that did the job.
 
-For experienced CLI-native coders, I do find the Qwen3.8 and Pi combo to be the most familiar, but for folks starting out in these adventures, Codex and gpt-oss-20b is genuinely great way to get started with fully local AI coding and development.
+For experienced CLI-native coders, I do find the Qwen3.8 and Pi combo to be the most familiar, but for folks starting out in these adventures, Codex and gpt-oss-20b is a genuinely great way to get started with fully local AI coding and development.
