@@ -16,6 +16,8 @@ timeZone = "America/Denver"
   location = "Boulder, Colorado"
   github = "https://github.com/BillDX"
   linkedin = "https://www.linkedin.com/in/billmcintyre/"
+  # GoatCounter site code: page views go to https://mrfuture.goatcounter.com (production builds only).
+  goatcounter = "mrfuture"
   [params.insideVoice]
     page = "/inside-voice/"
     download = "https://github.com/BillDX/InsideVoice/releases/latest/download/InsideVoice.dmg"

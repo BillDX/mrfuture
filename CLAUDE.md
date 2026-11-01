@@ -62,7 +62,7 @@ gh run watch                                     # follow a deploy after a push
 ## Design and code rules
 
 - Colours, type, spacing and shadows come from CSS variables in `tokens.css`. No literal colours in `main.css`.
-- The site's security policy forbids inline `style=` attributes, inline `<script>`, and anything loaded from another domain. Fonts are self-hosted. Prefer no JavaScript; if essential, one small file in `static/js/`, and the page must work without it.
+- The site's security policy forbids inline `style=` attributes, inline `<script>`, and anything loaded from another domain. The one exception is page views sent to GoatCounter (see README, Security). Fonts are self-hosted. Prefer no JavaScript; if essential, one small file in `assets/js/`, fingerprinted with an integrity hash like `count.js`, and the page must work without it.
 - Spot art comes only from `static/icons/` (the design system). New icons get drawn in the design system first, then copied here.
 - Text at 4.5:1 contrast or better; 2px atomic-teal focus ring; animations under 0.7s and off under `prefers-reduced-motion`.
 - Check every visual change at desktop and 390px phone width: no sideways scrolling. Show Bill a screenshot before committing design changes.

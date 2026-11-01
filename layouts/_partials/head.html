@@ -1,9 +1,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{- /* Visitor stats: GoatCounter (cookie-free). Production builds only, and only when a site code is set. */}}
+{{- $gc := "" }}
+{{- if and hugo.IsProduction site.Params.goatcounter }}{{ $gc = printf "https://%s.goatcounter.com/count" site.Params.goatcounter }}{{ end }}
 {{- if hugo.IsProduction }}
 {{- /* Security: only this site's own files may load. No third-party scripts, fonts, styles or frames.
-       GitHub Pages cannot send HTTP headers, so the policy is set here. */}}
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+       The one outside address is GoatCounter's count endpoint, which receives page views
+       (sendBeacon, or an image if the browser lacks it). GitHub Pages cannot send HTTP headers, so the policy is set here. */}}
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:{{ with $gc }} {{ . }}{{ end }}; font-src 'self'; connect-src 'self'{{ with $gc }} {{ . }}{{ end }}; media-src 'self'; object-src 'none'; frame-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 {{- end }}
 {{- $title := site.Params.titleSuffix }}
@@ -24,6 +28,11 @@
 {{- $css := slice (resources.Get "css/tokens.css") (resources.Get "css/fonts.css") (resources.Get "css/main.css") (resources.Get "css/syntax.css") | resources.Concat "css/site.css" }}
 {{- if hugo.IsProduction }}{{ $css = $css | minify | fingerprint "sha384" }}{{ end }}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
+{{- with $gc }}
+{{- /* GoatCounter's count.js, self-hosted (ISC license) from https://gc.zgo.at/count.js. Not minified, to keep its license header. */}}
+{{- $count := resources.Get "js/count.js" | fingerprint "sha384" }}
+<script data-goatcounter="{{ . }}" async src="{{ $count.RelPermalink }}" integrity="{{ $count.Data.Integrity }}"></script>
+{{- end }}
 <link rel="preload" href="{{ "fonts/big-shoulders-display-latin-900-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ "fonts/old-standard-tt-latin-400-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">

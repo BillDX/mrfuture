@@ -61,8 +61,10 @@ Drafts stay on your Mac until they're ready: this repo is public, so anything pu
 
 ## Security
 
-- No server code, database, logins, comments, trackers or third-party scripts.
-- Fonts are self-hosted, so the site makes no requests to anyone else.
+- No server code, database, logins, comments, cookies or third-party scripts.
+- Visitor stats come from [GoatCounter](https://www.goatcounter.com), a cookie-free counter. Its script is self-hosted (`assets/js/count.js`, ISC license, with an integrity hash), and production pages send each page view (path, title, referring site, screen width, query string) to `https://mrfuture.goatcounter.com/count`. That is the only outside address the security policy allows. The site code is `goatcounter` in `hugo.toml`; remove it to turn stats off. To refresh the script, download `https://gc.zgo.at/count.js` over `assets/js/count.js`.
+- To leave your own visits out of the stats, open `https://mrfuture.com/#toggle-goatcounter` once in each browser you use (it sets a flag in that browser's local storage; open it again to undo).
+- Fonts are self-hosted. The only request to anyone else is the GoatCounter page view.
 - A strict Content-Security-Policy is set in each page (GitHub Pages can't send headers), and the stylesheet carries a Subresource Integrity hash.
 - Markdown can't contain raw HTML (`unsafe = false`).
 - The deploy workflow pins every action to a commit SHA, checks Hugo against a pinned SHA-256, uses no secrets, and has only the permissions Pages needs. Dependabot proposes action updates.
